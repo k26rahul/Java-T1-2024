@@ -1,0 +1,8 @@
+# Ignore all .class files
+*.class
+
+# Ignore all files within the bin folder
+/bin/
+
+# Ignore all files within the .cph folder
+/.cph/
