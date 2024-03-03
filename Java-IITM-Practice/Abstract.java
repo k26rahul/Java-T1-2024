@@ -10,7 +10,7 @@ abstract class TwoWheeler implements Vehicle {
 /**
  * Main
  */
-public class Main {
+public class Abstract {
 
   public static void main(String[] args) {
     TwoWheeler myTwoWheeler = new TwoWheeler() {
@@ -32,7 +32,7 @@ public class Main {
     // for (int i = 10; i<j; j++, i--) {
     // }
 
-    int i = 90.0;
+    // int i = 90;
 
     // for (;;) {
     // System.out.println("ok");
