@@ -1,7 +1,0 @@
-{
-  "java.dependency.syncWithFolderExplorer": false,
-  "files.exclude": {
-    "**/*.class": true,
-    "**/.cph": true
-  }
-}
