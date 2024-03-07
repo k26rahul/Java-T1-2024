@@ -26,7 +26,7 @@ class Car {
   }
 }
 
-public class Main {
+public class CallbackDemo {
 
   public static void main(String[] args) {
     Car myCar = new Car();
