@@ -1,60 +1,53 @@
-// Generics
-// class Box<T> [exact type T]
+// Functional interface
+// Single abstract method, more static/default methods are allowed, but more than 1 abstract method NOT allowed
+// It works like a function
+interface Callback {
+  void onComplete(int Num);
+}
 
-// Generics subtyping
-// class Box<T extends Number>
-// bound type T, (upper) bounded to Number (supertype)
+class Car {
+  public void start(Callback callback) {
+    System.out.println("I'll try to start the Car.");
 
-// bounded parameter <T extends Number>
-class Box<T extends Number> {
-  private T item;
+    Thread myThread = new Thread(() -> {
+      System.out.println("Car is starting");
+      try {
+        System.out.println("Now waiting...");
+        Thread.sleep(1000);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+      System.out.println("Car started.");
+      callback.onComplete(16);
+    });
 
-  public Box(T item) {
-    this.item = item;
-  }
-
-  public T getItem() {
-    return item;
-  }
-
-  public void setItem(T item) {
-    this.item = item;
+    myThread.start();
+    System.out.println("I tried starting the car, now we'll wait.");
   }
 }
 
 public class Main {
+
   public static void main(String[] args) {
-    Box<Integer> myIntegerBox = new Box<>(19);
-    System.out.println(myIntegerBox.getItem());
+    Car myCar = new Car();
 
-    // Box<String> myStringBox = new Box<>("hello");
-    // System.out.println(myStringBox.getItem());
+    // // Anonymous inner class
+    // myCar.start(new Callback() {
+    // public void onComplete() {
+    // System.out.println("Let's go! Yayy!");
+    // }
+    // });
 
-    // Box<Boolean> myBooleanBox = new Box<>(false);
-    // System.out.println(myBooleanBox.getItem());
+    // // Callback
+    // Callback myCallback = () -> System.out.println("Let's go! Yayy!");
+    // myCar.start(num -> {
+    // System.out.println("Let's go! Yayy!");
+    // System.out.println("Let's go! Yayy!");
+    // System.out.println("Let's go! Yayy!");
+    // System.out.println(num);
+    // });
 
-    // String x = myStringBox.getItem();
-    // boolean y = myBooleanBox.getItem();
-
-    // // whats type of myBooleanBox? Ans. Box<Boolean>
-    // // whats type of myStringBox? Ans. Box<String>
-
-    // myBooleanBox.setItem(true); // setItem(Boolean)
-    // myStringBox.setItem("lol"); // setItem(String)
-
-    // Boolean boolean
-    // primitives => wrapper classes available
-    // boolean (primitive) => Boolean (wrapper class)
-    // boolean x = false;
-
-    // boolean k = false;
-    // Boolean x = Boolean.valueOf(k); // boxing (k primitive) -> (x Box)
-    // boolean y = x; // unboxing (x Box) -> (y primitive)
-    // System.out.println(y);
-
-    // int a = 16;
-    // Integer b = Integer.valueOf(a); // boxing (a primitive) -> (b Box)
-    // int c = b; // unboxing (b Box) -> (c primitive)
-    // System.out.println(c);
+    // :: member reference operator
+    myCar.start(System.out::println);
   }
 }
