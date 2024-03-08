@@ -2,7 +2,9 @@
 *.class
 
 # Ignore all files within the bin folder
-/bin/
+**/*/bin/
 
 # Ignore all files within the .cph folder
-/.cph/
+**/*/.cph/
+
+**/*/.classpath/
