@@ -1,11 +1,11 @@
-// Level 1: Parent class
 class Animal {
   void eat() {
     System.out.println("Animal is eating");
   }
 }
 
-// Level 2: Subclasses of Animal
+/*  */
+
 class Dog extends Animal {
   void bark() {
     System.out.println("Dog is barking");
@@ -24,14 +24,14 @@ class Bird extends Animal {
   }
 }
 
-// Level 2: Subclasses of Animal
 class Human extends Animal {
   void think() {
     System.out.println("Human is thinking");
   }
 }
 
-// Level 3: Subclasses of Human
+/*  */
+
 class BadHuman extends Human {
   void misbehave() {
     System.out.println("Bad human is misbehaving");
@@ -44,7 +44,8 @@ class GoodHuman extends Human {
   }
 }
 
-// Level 4: Subclasses of Human
+/*  */
+
 class SuperBadHuman extends BadHuman {
   void causeHavoc() {
     System.out.println("Super bad human is causing havoc");
@@ -57,7 +58,6 @@ class SuperGoodHuman extends GoodHuman {
   }
 }
 
-// Main class demonstrating the extended class hierarchy
 public class ClassHierarchyDemo {
   public static void main(String[] args) {
     Dog dog = new Dog();
@@ -77,6 +77,7 @@ public class ClassHierarchyDemo {
     superBadHuman.eat(); // Output: Animal is eating
     superGoodHuman.eat(); // Output: Animal is eating
 
+    System.out.println();
     // Level 2: Dog, Cat, Bird, Human
     dog.bark(); // Output: Dog is barking
     cat.meow(); // Output: Cat is meowing
@@ -86,10 +87,12 @@ public class ClassHierarchyDemo {
     superBadHuman.think(); // Output: Human is thinking
     superGoodHuman.think(); // Output: Human is thinking
 
+    System.out.println();
     // Level 3: BadHuman, GoodHuman
     badHuman.misbehave(); // Output: Bad human is misbehaving
     goodHuman.behaveWell(); // Output: Good human is behaving well
 
+    System.out.println();
     // Level 4: SuperBadHuman, SuperGoodHuman
     superBadHuman.causeHavoc(); // Output: Super bad human is causing havoc
     superGoodHuman.doCharity(); // Output: Super good human is doing charity

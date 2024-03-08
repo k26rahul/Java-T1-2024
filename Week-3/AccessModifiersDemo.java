@@ -1,6 +1,10 @@
-// Parent class with default access modifier
 class Parent {
-  void defaultMethod() {
+  public Parent() {
+    System.out.println("[Parent constructor]");
+    privateMethod();
+  }
+
+  void noAccessModifierMethod() {
     System.out.println("Default method in Parent class");
   }
 
@@ -17,46 +21,65 @@ class Parent {
   }
 }
 
-// Subclass of Parent
 class Child extends Parent {
-  void accessMethods() {
-    // Access methods of the Parent class
-    defaultMethod(); // OK (default access modifier)
-    publicMethod(); // OK (public access modifier)
-    protectedMethod(); // OK (protected access modifier)
-    // privateMethod(); // Uncommenting this line will cause an error (private
-    // access modifier)
-
-    // Access methods of the Child class
-    childMethod(); // OK (default access modifier in Child class)
+  public Child() {
+    System.out.println("[Child constructor]");
   }
 
-  void childMethod() {
-    System.out.println("Default method in Child class");
+  void accessMethods() {
+    noAccessModifierMethod(); // OK (no access modifier)
+    publicMethod(); // OK (public)
+    protectedMethod(); // OK (protected)
+    // privateMethod(); // Uncommenting this line will cause an error
   }
 }
 
 public class AccessModifiersDemo {
   public static void main(String[] args) {
     Parent parent = new Parent();
+    System.out.println("We just created a parent!");
+
+    System.out.println();
+
+    System.out.println("Now we will create a child!");
     Child child = new Child();
 
-    // Access methods of the Parent class through an instance of Parent
-    parent.defaultMethod(); // OK (default access modifier)
-    parent.publicMethod(); // OK (public access modifier)
-    parent.protectedMethod(); // OK (protected access modifier)
+    System.out.println();
+    parent.noAccessModifierMethod(); // OK (no access modifier)
+    parent.publicMethod(); // OK (public)
+    parent.protectedMethod(); // OK (protected)
     // parent.privateMethod(); // Uncommenting this line will cause an error
-    // (private access modifier)
 
-    // Access methods of the Child class through an instance of Child
+    System.out.println();
     child.accessMethods();
 
-    // Access methods of the Parent class through an instance of Child
-    // child.defaultMethod(); // Uncommenting this line will cause an error (default
-    // access modifier in Parent class)
-    child.publicMethod(); // OK (public access modifier)
-    child.protectedMethod(); // OK (protected access modifier)
-    // child.privateMethod(); // Uncommenting this line will cause an error (private
-    // access modifier in Parent class)
+    System.out.println();
+    child.noAccessModifierMethod(); // OK (no access modifier)
+    child.publicMethod(); // OK (public)
+    child.protectedMethod(); // OK (protected)
+    // child.privateMethod(); // Uncommenting this line will cause an error
   }
 }
+
+/*
+ * [Parent constructor]
+ * Private method in Parent class
+ * We just created a parent!
+ * 
+ * Now we will create a child!
+ * [Parent constructor]
+ * Private method in Parent class
+ * [Child constructor]
+ * 
+ * Default method in Parent class
+ * Public method in Parent class
+ * Protected method in Parent class
+ * 
+ * Default method in Parent class
+ * Public method in Parent class
+ * Protected method in Parent class
+ * 
+ * Default method in Parent class
+ * Public method in Parent class
+ * Protected method in Parent class
+ */
