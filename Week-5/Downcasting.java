@@ -20,7 +20,13 @@ class Human extends Animal {
   }
 }
 
-public class Main {
+// https://en.wikipedia.org/wiki/Downcasting
+// In class-based programming, downcasting, or type refinement, is the act of
+// casting a base or parent class reference, to a more restricted derived class
+// reference. This is only allowable if the object is already an instance of the
+// derived class, and so this conversion is inherently fallible.
+
+public class Downcasting {
 
   public static void main(String[] args) {
     Animal animal = new Human();
