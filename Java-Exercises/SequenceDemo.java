@@ -62,5 +62,6 @@ public class SequenceDemo {
     // while (itr.hasNext()) {
     // System.out.println(itr.next());
     // }
+    scanner.close();
   }
 }
